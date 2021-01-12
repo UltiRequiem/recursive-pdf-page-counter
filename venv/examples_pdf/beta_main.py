@@ -10,6 +10,7 @@ df = pd.DataFrame(mList, columns=["books"])
 #print(df)
 #print(df["books"][2])
 
+#df["pages"] = []
+
 df["pages"] = df["books"].apply(lambda x: pdf_reader(x).getNumpages())
 
-print(df)
