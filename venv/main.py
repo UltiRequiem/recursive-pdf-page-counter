@@ -1,7 +1,6 @@
-def run():
-    pass
+import os 
+from PyPDF2 import PdfFileReader as pdf_reader
 
+mList = os.listdir()
 
-
-if __name__ == "__main__":
-    run()
+print(mList)
