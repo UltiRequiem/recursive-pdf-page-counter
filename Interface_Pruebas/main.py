@@ -1,12 +1,25 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets
+
+from design2 import Ui_PDFtoCSV  # importing our generated file
+
+
 
 import sys
 
+class Ui_PDFtoCSV(QtWidgets.QMainWindow):
+
+    def __init__(self):
+
+        super(PDFtoCSV, self).__init__()
+
+        self.ui = Ui_MainWindow()
+    
+        self.ui.setupUi(self)
+
 app = QtWidgets.QApplication([])
 
-win = uic.loadUi("main.ui") #specify the location of your .ui file
+application = Ui_PDFtoCSV()
 
-win.show()
+application.show()
 
-print(win.folder)
 sys.exit(app.exec())
