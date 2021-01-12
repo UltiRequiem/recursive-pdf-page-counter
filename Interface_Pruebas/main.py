@@ -8,4 +8,5 @@ win = uic.loadUi("main.ui") #specify the location of your .ui file
 
 win.show()
 
+
 sys.exit(app.exec())

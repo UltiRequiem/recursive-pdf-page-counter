@@ -54,3 +54,4 @@ class Ui_PDFtoCSV(object):
         self.pushButton.setText(_translate("PDFtoCSV", "Comenzar"))
         self.label_3.setText(_translate("PDFtoCSV", "© Eliaz Bobadilla 2021"))
         self.label_4.setText(_translate("PDFtoCSV", " Archivos Procesados"))
+
