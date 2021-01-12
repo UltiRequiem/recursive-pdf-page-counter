@@ -54,13 +54,3 @@ class Ui_PDFtoCSV(object):
         self.pushButton.setText(_translate("PDFtoCSV", "Comenzar"))
         self.label_3.setText(_translate("PDFtoCSV", "© Eliaz Bobadilla 2021"))
         self.label_4.setText(_translate("PDFtoCSV", " Archivos Procesados"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    PDFtoCSV = QtWidgets.QMainWindow()
-    ui = Ui_PDFtoCSV()
-    ui.setupUi(PDFtoCSV)
-    PDFtoCSV.show()
-    sys.exit(app.exec_())
