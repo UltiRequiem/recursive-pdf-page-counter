@@ -7,12 +7,8 @@ from PyPDF2 import PdfFileReader as pdf_reader
 import pandas as pd
 import csv
 
-sources = []
-results = []
-
-
-def read_pdf(root_folder):
-
+def read_pdf(root_folder,sources):
+    results = []
     counter_pages = 0
 
     for source in sources:
@@ -21,13 +17,13 @@ def read_pdf(root_folder):
         counter_pages += counter
 
     results.append(['Total de paginas: ' + str(counter_pages)])
-    write(os.path.join(root_folder, 'results.csv'))
+    write(os.path.join(root_folder, 'results.csv'), results)
 
 
-def write(csv_location):
+def write(csv_location, list):
     with open(csv_location, 'w', newline='') as file:
         writer = csv.writer(file)
-        for i in results:
+        for i in list:
             writer.writerow(i)
     show_dialog('Alerta', 'El proceso a terminado.')
 
@@ -42,12 +38,13 @@ def show_dialog(title, message):
 
 
 def search_files_in_directory(path, extension):
+    sources = []
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(extension):
                 sources.append(
                     {'path': os.path.join(root, file), 'file': file})
-    read_pdf(path)
+    read_pdf(path,sources)
 
 
 class ejemplo_GUI(QMainWindow):
