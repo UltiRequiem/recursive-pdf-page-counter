@@ -3,6 +3,8 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QMessageBox
 import os
 from os import path
+from PyPDF2 import PdfFileReader as pdf_reader
+import pandas as pd
 
 def show_dialog(title, message):
     msgBox = QMessageBox()
@@ -27,19 +29,12 @@ class ejemplo_GUI(QMainWindow):
 
     def start(self):              
         
-        
         user_path = self.folder.toPlainText()
 
         if path.exists(user_path):
             search_files_in_directory(user_path, '.pdf')
         else:
             show_dialog('Alerta', 'El directorio no existe')
-
-                
-
-        #C:\\Users\eliaz\Desktop\Repositorios\gg\mydir
-
-
 
 
 if __name__ == '__main__':
