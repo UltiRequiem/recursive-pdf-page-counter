@@ -1,7 +1,7 @@
 # PDF-to-CSV-with-Python
 
-**On Windows:**
+#### **On Windows:**
 ![IMG](https://i.imgur.com/bWA9FEL.png)
 
-**On Linux:**
+#### **On Linux:**
 ![IMG](https://i.imgur.com/XngAmDG.png)
