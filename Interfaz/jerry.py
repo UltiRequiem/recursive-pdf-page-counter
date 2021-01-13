@@ -6,6 +6,16 @@ from os import path
 from PyPDF2 import PdfFileReader as pdf_reader
 import pandas as pd
 
+sources = []
+
+def read_pdf(path, pdf):
+    page_counter = pdf_reader(path).getNumPages()
+    write(page_counter, path, pdf)
+
+def write(page_counter, path, pdf):
+    df = pd.DataFrame(page_counter, colums=['Paginas'])
+    print(df)
+
 def show_dialog(title, message):
     msgBox = QMessageBox()
     msgBox.setIcon(QMessageBox.Information)
@@ -18,7 +28,9 @@ def search_files_in_directory(path, extension):
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(extension):
-                print(os.path.join(root, file))
+                sources.append(os.path.join(root, file), file)
+                #read_pdf(os.path.join(root, file), file)
+
 
 class ejemplo_GUI(QMainWindow):
 
