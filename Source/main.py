@@ -1,18 +1,18 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 import os
 from os import path
-from PyPDF2 import PdfFileReader as pdf_reader
-import pandas as pd
+from PyPDF2 import PdfFileReader as PdfReader
 import csv
 
-def read_pdf(root_folder,sources):
+
+def read_pdf(root_folder, sources):
     results = []
     counter_pages = 0
 
     for source in sources:
-        counter = pdf_reader(source.get('path')).getNumPages()
+        counter = PdfReader(source.get('path')).getNumPages()
         results.append([source.get('path'), source.get('file'), counter])
         counter_pages += counter
 
@@ -20,34 +20,34 @@ def read_pdf(root_folder,sources):
     write(os.path.join(root_folder, 'results.csv'), results)
 
 
-def write(csv_location, list):
+def write(csv_location, items):
     with open(csv_location, 'w', newline='') as file:
         writer = csv.writer(file)
-        for i in list:
+        for i in items:
             writer.writerow(i)
     show_dialog('Alerta', 'El proceso a terminado.')
 
 
 def show_dialog(title, message):
-    msgBox = QMessageBox()
-    msgBox.setIcon(QMessageBox.Information)
-    msgBox.setText(message)
-    msgBox.setWindowTitle(title)
-    msgBox.show()
-    returnValue = msgBox.exec()
+    msg_box = QMessageBox()
+    msg_box.setIcon(QMessageBox.Information)
+    msg_box.setText(message)
+    msg_box.setWindowTitle(title)
+    msg_box.show()
+    msg_box.exec()
 
 
-def search_files_in_directory(path, extension):
+def search_files_in_directory(root_path, extension):
     sources = []
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in os.walk(root_path):
         for file in files:
             if file.endswith(extension):
                 sources.append(
                     {'path': os.path.join(root, file), 'file': file})
-    read_pdf(path,sources)
+    read_pdf(root_path, sources)
 
 
-class ejemplo_GUI(QMainWindow):
+class EjemploGUI(QMainWindow):
 
     def __init__(self):
         super().__init__()
@@ -66,6 +66,6 @@ class ejemplo_GUI(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    GUI = ejemplo_GUI()
+    GUI = EjemploGUI()
     GUI.show()
     sys.exit(app.exec_())
