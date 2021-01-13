@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PDFtoCSV</class>
- <widget class="QMainWindow" name="PDFtoCSV">
+ <class>Window</class>
+ <widget class="QMainWindow" name="Window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>490</width>
-    <height>155</height>
+    <height>130</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PDF to CSV </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Texto_Path">
     <property name="geometry">
      <rect>
       <x>20</x>

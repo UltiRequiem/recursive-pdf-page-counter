@@ -1,16 +1,14 @@
 from PyQt5 import QtWidgets
 
-from design2 import Ui_PDFtoCSV  # importing our generated file
-
-
+from main5 import Ui_MainWindow  # importing our generated file
 
 import sys
 
-class Ui_PDFtoCSV(QtWidgets.QMainWindow):
+class mywindow(QtWidgets.QMainWindow):
 
     def __init__(self):
 
-        super(PDFtoCSV, self).__init__()
+        super(mywindow, self).__init__()
 
         self.ui = Ui_MainWindow()
     
@@ -18,7 +16,7 @@ class Ui_PDFtoCSV(QtWidgets.QMainWindow):
 
 app = QtWidgets.QApplication([])
 
-application = Ui_PDFtoCSV()
+application = mywindow()
 
 application.show()
 
