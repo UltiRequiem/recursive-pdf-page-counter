@@ -5,15 +5,33 @@ import os
 from os import path
 from PyPDF2 import PdfFileReader as pdf_reader
 import pandas as pd
+import csv
 
 sources = []
+results = []
+
 
 def read_pdf():
-    for sources
 
-def write(page_counter, path, pdf):
-    df = pd.DataFrame(page_counter, colums=['Paginas'])
-    print(df)
+    counter_pages = 0
+
+    for source in sources:
+        counter = pdf_reader(source.get('path')).getNumPages()
+        results.append([source.get('path'), source.get('file'), counter])
+        counter_pages += counter
+
+    results.append(['Total de paginas: ' + str(counter_pages)])
+    write()
+
+
+def write():
+    print(results)
+    with open('C:\\Users\eliaz\Desktop\innovators.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        for i in results:
+            writer.writerow(i)
+    show_dialog('Alerta','El proceso a terminado.')
+
 
 def show_dialog(title, message):
     msgBox = QMessageBox()
@@ -23,15 +41,14 @@ def show_dialog(title, message):
     msgBox.show()
     returnValue = msgBox.exec()
 
+
 def search_files_in_directory(path, extension):
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(extension):
-                #sources.append(os.path.join(root, file), file)
-                #read_pdf(os.path.join(root, file), file)
-                sources.append({'path':os.path.join(root, file), 'file': file})
+                sources.append(
+                    {'path': os.path.join(root, file), 'file': file})
     read_pdf()
-               
 
 
 class ejemplo_GUI(QMainWindow):
@@ -41,8 +58,8 @@ class ejemplo_GUI(QMainWindow):
         uic.loadUi('main.ui', self)
         self.comenzar.clicked.connect(self.start)
 
-    def start(self):              
-        
+    def start(self):
+
         user_path = self.folder.toPlainText()
 
         if path.exists(user_path):
