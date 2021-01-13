@@ -1,10 +1,15 @@
-from PyQt5 import QtWidgets
+from PyQt5 import *
 
-from main5 import Ui_MainWindow  # importing our generated file
-
+from main5 import *
 import sys
+from os import *
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------------   
 class mywindow(QtWidgets.QMainWindow):
+
+    def mela2(self):
+            mai = self.folder
+            print(mai)
 
     def __init__(self):
 
@@ -14,10 +19,21 @@ class mywindow(QtWidgets.QMainWindow):
     
         self.ui.setupUi(self)
 
+        #print(self.folder.values)
+    
+    
+
+
 app = QtWidgets.QApplication([])
 
 application = mywindow()
-
+application.mela2()
 application.show()
 
 sys.exit(app.exec())
+
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
