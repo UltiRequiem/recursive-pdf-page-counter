@@ -11,7 +11,7 @@ sources = []
 results = []
 
 
-def read_pdf():
+def read_pdf(root_folder):
 
     counter_pages = 0
 
@@ -21,16 +21,15 @@ def read_pdf():
         counter_pages += counter
 
     results.append(['Total de paginas: ' + str(counter_pages)])
-    write()
+    write(os.path.join(root_folder, 'results.csv'))
 
 
-def write():
-    print(results)
-    with open('C:\\Users\eliaz\Desktop\innovators.csv', 'w', newline='') as file:
+def write(csv_location):
+    with open(csv_location, 'w', newline='') as file:
         writer = csv.writer(file)
         for i in results:
             writer.writerow(i)
-    show_dialog('Alerta','El proceso a terminado.')
+    show_dialog('Alerta', 'El proceso a terminado.')
 
 
 def show_dialog(title, message):
@@ -48,7 +47,7 @@ def search_files_in_directory(path, extension):
             if file.endswith(extension):
                 sources.append(
                     {'path': os.path.join(root, file), 'file': file})
-    read_pdf()
+    read_pdf(path)
 
 
 class ejemplo_GUI(QMainWindow):
