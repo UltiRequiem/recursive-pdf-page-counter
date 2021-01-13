@@ -8,9 +8,8 @@ import pandas as pd
 
 sources = []
 
-def read_pdf(path, pdf):
-    page_counter = pdf_reader(path).getNumPages()
-    write(page_counter, path, pdf)
+def read_pdf():
+    for sources
 
 def write(page_counter, path, pdf):
     df = pd.DataFrame(page_counter, colums=['Paginas'])
@@ -28,8 +27,11 @@ def search_files_in_directory(path, extension):
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(extension):
-                sources.append(os.path.join(root, file), file)
+                #sources.append(os.path.join(root, file), file)
                 #read_pdf(os.path.join(root, file), file)
+                sources.append({'path':os.path.join(root, file), 'file': file})
+    read_pdf()
+               
 
 
 class ejemplo_GUI(QMainWindow):
