@@ -1,3 +1,8 @@
 # PDF-to-CSV-with-Python
 
-![](https://i.imgur.com/bWA9FEL.png)
+#### **On Linux:**
+![IMG](https://i.imgur.com/XngAmDG.png)
+
+#### **On Windows:**
+![IMG](https://i.imgur.com/bWA9FEL.png)
+
