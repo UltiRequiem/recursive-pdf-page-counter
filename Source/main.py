@@ -1,10 +1,12 @@
-import sys
-from PyQt5 import uic
+from fbs_runtime.application_context.PyQt5 import ApplicationContext
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
-import os
+from PyQt5 import uic
 from os import path
 from PyPDF2 import PdfFileReader as PdfReader
+import os
 import csv
+
+import sys
 
 
 def read_pdf(root_folder, sources):
@@ -47,7 +49,7 @@ def search_files_in_directory(root_path, extension):
     read_pdf(root_path, sources)
 
 
-class EjemploGUI(QMainWindow):
+class MainGUI(QMainWindow):
 
     def __init__(self):
         super().__init__()
@@ -65,7 +67,9 @@ class EjemploGUI(QMainWindow):
 
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    GUI = EjemploGUI()
-    GUI.show()
-    sys.exit(app.exec_())
+    appctxt = ApplicationContext() 
+    window = MainGUI()
+    window.resize(500, 150)
+    window.show()
+    exit_code = appctxt.app.exec_()  
+    sys.exit(exit_code)
