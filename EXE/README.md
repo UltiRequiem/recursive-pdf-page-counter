@@ -40,22 +40,9 @@ And of course Dillinger itself is open source with a [public repository][dill]
 
 ### Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
+Para usarlo debera hacer le un git clone o descargalo en formato zip y ubicarte en EXE/PdfToCSV
 
-Install the dependencies and devDependencies and start the server.
-
-```sh
-$ cd dillinger
-$ npm install -d
-$ node app
-```
-
-For production environments...
-
-```sh
-$ npm install --production
-$ NODE_ENV=production node app
-```
+Luego puedes ejecutarlo facilmente dandole doble click en PdfToCSV.exe
 
 ### Development
 
@@ -93,4 +80,5 @@ MIT
 
 
 **Free Software, Hell Yeah!**
+
 
